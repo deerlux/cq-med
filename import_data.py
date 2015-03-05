@@ -1,4 +1,6 @@
 #!/bin/env python2
+from __future__ import print_function
+
 from sqlalchemy.ext.automap import automap_base
 import sqlalchemy
 from sqlalchemy.orm import Session
@@ -34,5 +36,8 @@ if __name__ == '__main__':
         session.add(item)
 
     session.commit()
+    
+    print('{0} records imported.'.format(k))
+
     session.close()
 
