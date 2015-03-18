@@ -15,5 +15,14 @@ class MedDB:
     engine_str = 'postgresql://localhost/medical'
 
     def __init__(self):
-        engine = sqlalchemy.create_engine(engine_str)
+        engine = sqlalchemy.create_engine(self.engine_str)
+        self.session = Session(engine)
+
+        self.Base = automap_base()
+        self.Base.prepare(engine, reflect=True)
+
+        self.Jianchazhibiao = self.Base.classes.jianchazhibiao
+
+    def __del__(self):
+        self.session.close()
 

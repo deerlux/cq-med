@@ -6,5 +6,9 @@ CREATE TABLE IF NOT EXISTS jianchazhibiao (
     zhibiao_unit varchar(16),
     zhibiao_ref1 float,
     zhibiao_ref2 float,
-    PRIMARY KEY(zhibiao_id)
+    PRIMARY KEY(zhibiao_id),
+    UNIQUE (zhibiao_name, zhibiao_name_eng)
 );
+CREATE INDEX ON jianchazhibiao(zhibiao_name);
+CREATE INDEX ON jianchazhibiao(zhibiao_name_eng);
+
