@@ -33,9 +33,11 @@ def med_ocr(filename,
             tessconf))
     else:
         print('tesseract -l chi_sim {0} {1} {2}'.format(pgm2,
-            txt,tessconf)
+            txt,tessconf))
         sh.tesseract('-l', 'chi_sim', filename, txt, tessconf)
     
     return txt + '.txt'
 
+if __name__ == '__main__':
+    med_ocr(sys.argv[1]) 
 

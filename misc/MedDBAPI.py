@@ -22,6 +22,7 @@ class MedDB:
         self.Base.prepare(engine, reflect=True)
 
         self.Jianchazhibiao = self.Base.classes.jianchazhibiao
+        self.query = self.session.query
 
     def __del__(self):
         self.session.close()
