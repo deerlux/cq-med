@@ -12,9 +12,8 @@ from singleton import singleton
 @singleton
 class MedDB:
 
-    engine_str = 'postgresql://localhost/medical'
-
-    def __init__(self):
+    def __init__(self, engine_str = 'postgresql://localhost/medical'):
+        self.engine_str = engine_str
         engine = sqlalchemy.create_engine(self.engine_str)
         self.session = Session(engine)
 
@@ -23,6 +22,7 @@ class MedDB:
 
         self.Jianchazhibiao = self.Base.classes.jianchazhibiao
         self.query = self.session.query
+
 
     def __del__(self):
         self.session.close()

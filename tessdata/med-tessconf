@@ -9,4 +9,5 @@ tessedit_write_images true
 
 #load_system_dawg F
 #load_freq_dawg F
-user_words_suffix my-words2
+user_words_suffix user-words2
+
